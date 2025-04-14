@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -45,6 +45,11 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("isShoot");
         }
+
+        if (Input.GetKeyDown(KeyCode.K)) 
+        {
+            animator.SetTrigger("isDead");
+        }
     }
 
     private void Move()
@@ -84,7 +89,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         velocity.y = jumpForce;
-        animator.SetBool("isJump", true);
+        animator.SetTrigger("isJump");
     }
 
     private void RotateCamera()
@@ -105,19 +110,19 @@ public class PlayerController : MonoBehaviour
     private void HandleAnimation()
     {
         bool isMoving = horizontal != 0 || vertical != 0;
-        animator.SetBool("isRunning", isMoving);
 
-        if (!controller.isGrounded)
+        if (controller.isGrounded)
         {
-            animator.SetBool("isRunning", false);
+            animator.SetBool("isRunning", isMoving); 
         }
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.CompareTag("Ground"))
+        else
         {
-            animator.SetBool("isJump", false);
+            animator.SetBool("isRunning", false); 
+        }
+
+        if (!controller.isGrounded && velocity.y < 0)
+        {
+            animator.SetTrigger("isDead"); 
         }
     }
 }
