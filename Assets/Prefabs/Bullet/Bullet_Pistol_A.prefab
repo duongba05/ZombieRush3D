@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 4211537546389462866}
   - component: {fileID: 5458799951512988275}
   - component: {fileID: 6960949389524039896}
+  - component: {fileID: 9173800664440186761}
   m_Layer: 0
   m_Name: Bullet_Pistol_A
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4419936149489365064}
@@ -173,3 +174,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9173800664440186761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288652182115355725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365b614e25bbe99408a0131896073938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8253287014404365646}
   - component: {fileID: 2382517996124080588}
   - component: {fileID: 3693654650495734942}
+  - component: {fileID: -3578022711308108957}
   m_Layer: 0
   m_Name: Bullet_Pistol_D
   m_TagString: Untagged
@@ -173,3 +174,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-3578022711308108957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773373831632002469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365b614e25bbe99408a0131896073938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
