@@ -27,28 +27,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        HandleInput();
-        RotateCamera();
+        HandleInput();  // Gọi hàm để xử lý các đầu vào (di chuyển, nhảy)
+        RotateCamera(); // Xử lý quay camera
     }
 
     private void HandleInput()
     {
-        Move();
-        HandleAnimation();
+        Move();  // Di chuyển
+        HandleAnimation();  // Cập nhật animation
 
         if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
-        }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            animator.SetTrigger("isShoot");
-        }
-
-        if (Input.GetKeyDown(KeyCode.K)) 
-        {
-            animator.SetTrigger("isDead");
+            Jump();  // Xử lý nhảy
         }
     }
 
@@ -76,20 +66,20 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            velocity.y = -1f;
+            velocity.y = -1f; // Set y velocity to simulate gravity when on the ground
         }
         else
         {
-            velocity.y -= gravity * Time.deltaTime;
+            velocity.y -= gravity * Time.deltaTime; // Apply gravity if not grounded
         }
 
-        controller.Move((moveDirection + velocity) * Time.deltaTime);
+        controller.Move((moveDirection + velocity) * Time.deltaTime);  // Move the player
     }
 
     private void Jump()
     {
-        velocity.y = jumpForce;
-        animator.SetTrigger("isJump");
+        velocity.y = jumpForce;  // Set y velocity to simulate a jump
+        animator.SetTrigger("isJump");  // Trigger jump animation
     }
 
     private void RotateCamera()
@@ -97,14 +87,14 @@ public class PlayerController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
         float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        rotationY += mouseX;
-        rotationX -= mouseY;
-        rotationX = Mathf.Clamp(rotationX, -60f, 60f);
+        rotationY += mouseX;  // Rotate horizontally (left/right)
+        rotationX -= mouseY;  // Rotate vertically (up/down)
+        rotationX = Mathf.Clamp(rotationX, -60f, 60f);  // Clamp vertical rotation
 
         Quaternion camRotation = Quaternion.Euler(rotationX, rotationY, 0);
-        Vector3 offset = new Vector3(0, 2f, -cameraDistance);
-        cameraTransform.position = transform.position + camRotation * offset;
-        cameraTransform.LookAt(transform.position + Vector3.up * 1.5f);
+        Vector3 offset = new Vector3(0, 2f, -cameraDistance);  // Camera offset
+        cameraTransform.position = transform.position + camRotation * offset;  // Set camera position
+        cameraTransform.LookAt(transform.position + Vector3.up * 1.5f);  // Make the camera look at the player
     }
 
     private void HandleAnimation()
@@ -113,16 +103,16 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            animator.SetBool("isRunning", isMoving); 
+            animator.SetBool("isRunning", isMoving);  // Update running animation when moving
         }
         else
         {
-            animator.SetBool("isRunning", false); 
+            animator.SetBool("isRunning", false);  // Stop running animation if not grounded
         }
 
         if (!controller.isGrounded && velocity.y < 0)
         {
-            animator.SetTrigger("isDead"); 
+            animator.SetTrigger("isDead");  // Trigger dead animation if the player falls
         }
     }
 }

@@ -11190,7 +11190,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 242872725713180758, guid: e676d95a95f43ca4baf342ea52eb4572, type: 3}
   m_PrefabInstance: {fileID: 968452279982817973}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &965772440
+--- !u!95 &965772444 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6842418145950324886, guid: e676d95a95f43ca4baf342ea52eb4572, type: 3}
+  m_PrefabInstance: {fileID: 968452279982817973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &965772446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11199,11 +11204,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 965772434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02eded08a4f90446843bcb4ddaf2e78, type: 3}
+  m_Script: {fileID: 11500000, guid: 666f46cb0ba647b4bb53d6303f469f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 6288652182115355725, guid: 2fb75efaaeb364d48bab22c443e1bd7c, type: 3}
-  pointShot: {fileID: 743565167}
+  animator: {fileID: 965772444}
+  bulletPrefab: {fileID: 6288652182115355725, guid: 2fb75efaaeb364d48bab22c443e1bd7c, type: 3}
+  firePoint: {fileID: 743565168}
+  fireRate: 0.2
+  holdTimeToPause: 0.5
 --- !u!1001 &970780226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25012,7 +25020,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 242872725713180758, guid: e676d95a95f43ca4baf342ea52eb4572, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 965772440}
+      addedObject: {fileID: 965772446}
   m_SourcePrefab: {fileID: 100100000, guid: e676d95a95f43ca4baf342ea52eb4572, type: 3}
 --- !u!1001 &2287404927547282161
 PrefabInstance:
